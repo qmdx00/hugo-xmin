@@ -1,0 +1,28 @@
+name = "Hugo XMin"
+license = "MIT"
+licenselink = "https://github.com/qmdx00/hugo-xmin/blob/modify/LICENSE.md"
+description = "A restrained, content-first Hugo theme with responsive articles and photo galleries."
+homepage = "https://github.com/qmdx00/hugo-xmin"
+demosite = "https://wimi.space"
+tags = [
+  "minimal",
+  "blog",
+  "personal",
+  "clean",
+  "simple",
+  "starter",
+  "minimalist",
+  "responsive",
+  "gallery",
+]
+features = ["blog", "responsive", "gallery", "table-of-contents"]
+min_version = "0.146.0"
+
+[author]
+name = "Wimi Yuan"
+homepage = "https://github.com/qmdx00"
+
+[original]
+name = "Yihui Xie"
+homepage = "https://yihui.org"
+repo = "https://github.com/yihui/hugo-xmin"

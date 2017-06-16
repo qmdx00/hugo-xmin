@@ -1,0 +1,23 @@
+{{ define "main" }}
+{{ if not .IsHome }}
+  <header class="page-header">
+    <h1>{{ .Title | markdownify }}</h1>
+  </header>
+{{ end }}
+
+{{ with .Content }}
+  <div class="page-content">{{ . }}</div>
+{{ end }}
+
+{{ $dateFormat := default "2006/01/02" .Site.Params.dateFormat }}
+{{ $pages := where .Pages.ByDate.Reverse "Section" "!=" "" }}
+{{ if .IsHome }}
+  {{ $recently := default 6 .Site.Params.recently }}
+  {{ $pages = first $recently (where .Site.RegularPages.ByDate.Reverse "Section" "!=" "") }}
+  {{ partial "page-list.html" (dict "Pages" $pages "DateFormat" $dateFormat) }}
+{{ else }}
+  {{ $paginator := .Paginate $pages }}
+  {{ partial "page-list.html" (dict "Pages" $paginator.Pages "DateFormat" $dateFormat) }}
+  {{ partial "pagination.html" $paginator }}
+{{ end }}
+{{ end }}

@@ -1,0 +1,19 @@
+{{ $id := default (.Get 0) (.Get "id") }}
+{{ $page := default (default 1 (.Get 1)) (.Get "page") }}
+{{ $normalizedID := lower $id }}
+{{ $basicQuery := querify "page" $page "high_quality" 1 "as_wide" 1 }}
+{{ $videoQuery := "" }}
+
+{{ if strings.HasPrefix $normalizedID "av" }}
+{{ $videoQuery = querify "aid" (strings.TrimPrefix "av" $normalizedID) }}
+{{ else if strings.HasPrefix $normalizedID "bv" }}
+{{ $videoQuery = querify "bvid" $id }}
+{{ else }}
+{{ errorf "The bilibili shortcode expects an av or BV id, got %q on page %q." $id .Page.File.Path }}
+{{ end }}
+
+<div class="video-wrapper">
+  <iframe src="https://player.bilibili.com/player.html?{{ $basicQuery | safeURL }}&{{ $videoQuery | safeURL }}"
+    scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true">
+  </iframe>
+</div>

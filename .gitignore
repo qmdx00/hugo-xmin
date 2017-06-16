@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Keep only the distributable example configuration.
+exampleSite/*
+!exampleSite/hugo.toml

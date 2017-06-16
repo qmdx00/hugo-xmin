@@ -1,0 +1,12 @@
+<ol class="content-list">
+  {{ range .Pages }}
+    <li class="content-list-item">
+      {{ if not .Date.IsZero }}
+        <time class="content-list-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format $.DateFormat }}</time>
+      {{ end }}
+      <a class="content-list-title" href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+    </li>
+  {{ else }}
+    <li class="content-list-empty">No content yet.</li>
+  {{ end }}
+</ol>

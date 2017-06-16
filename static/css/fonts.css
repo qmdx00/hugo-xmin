@@ -1,0 +1,24 @@
+:root {
+  --body-font: Optima, Candara, Calibri, "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  --heading-font: "Iowan Old Style", "Palatino Linotype", "Songti SC", "Noto Serif CJK SC", Georgia, serif;
+  --reading-font: Charter, "Bitstream Charter", "Iowan Old Style", "Songti SC", "Noto Serif CJK SC", Georgia, serif;
+  --code-font: "JetBrains Mono", "Source Code Pro", Monaco, monospace;
+}
+
+body {
+  font-family: var(--body-font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+}
+
+code {
+  font-family: var(--code-font);
+  font-size: .85em;
+}

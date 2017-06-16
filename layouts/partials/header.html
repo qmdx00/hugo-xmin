@@ -1,0 +1,16 @@
+{{ $currentPage := . }}
+<header class="site-header">
+  <nav aria-label="Main navigation">
+    <ul class="menu">
+      {{ range .Site.Menus.main }}
+        {{ $menuURL := .URL | relURL }}
+        {{ $isHome := and $currentPage.IsHome (eq $menuURL "/") }}
+        {{ $isSection := and (ne $menuURL "/") (strings.HasPrefix $currentPage.RelPermalink $menuURL) }}
+        {{ $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) $isHome $isSection }}
+        <li>
+          <a href="{{ $menuURL }}"{{ if $active }} class="is-active" aria-current="page"{{ end }}>{{ .Name }}</a>
+        </li>
+      {{ end }}
+    </ul>
+  </nav>
+</header>

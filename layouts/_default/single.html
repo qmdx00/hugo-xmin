@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article class="article">
+  {{ partial "article-header.html" . }}
+
+  {{ if .Params.toc }}
+    {{ $tocTitle := default "Contents" .Site.Params.tocTitle }}
+    <details class="toc" open>
+      <summary>{{ $tocTitle }}</summary>
+      {{ .TableOfContents }}
+    </details>
+  {{ end }}
+
+  <div class="article-content">
+    {{ .Content }}
+  </div>
+</article>
+
+<div class="comments">
+  {{ partial "comment.html" . }}
+</div>
+{{ end }}

@@ -1,0 +1,13 @@
+{{- $cover := default "" .Params.cover -}}
+{{- if not $cover -}}
+  {{- with .Resources.GetMatch "{cover.*,featured.*,thumbnail.*}" -}}
+    {{- $cover = .RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $cover -}}
+  {{- $matches := findRE `(?i)src\s*=\s*["'][^"']+["']` .RawContent 1 -}}
+  {{- if gt (len $matches) 0 -}}
+    {{- $cover = replaceRE `(?i)^src\s*=\s*["']|["']$` "" (index $matches 0) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $cover -}}

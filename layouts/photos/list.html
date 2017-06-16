@@ -1,0 +1,32 @@
+{{ define "main" }}
+<header class="page-header photo-page-header">
+  <h1>{{ .Title | markdownify }}</h1>
+  {{ with .Content }}
+    <div class="page-content">{{ . }}</div>
+  {{ end }}
+</header>
+
+{{ $dateFormat := default "2006/01/02" .Site.Params.dateFormat }}
+{{ $columns := default 2 .Site.Params.photoListColumns }}
+{{ $pages := where .Pages.ByDate.Reverse "Section" "!=" "" }}
+{{ $paginator := .Paginate $pages }}
+<div class="photo-list" style="--photo-list-columns: {{ $columns }}">
+  {{ range $paginator.Pages }}
+    {{ $cover := partial "photo-cover.html" . }}
+    <article class="photo-card">
+      <a class="photo-card-cover" href="{{ .RelPermalink }}" aria-label="{{ .Title | plainify }}">
+        {{ with $cover }}
+          <img src="{{ . | safeURL }}" alt="" loading="lazy">
+        {{ else }}
+          <span class="photo-card-placeholder">No preview</span>
+        {{ end }}
+      </a>
+      <h2><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h2>
+      {{ if not .Date.IsZero }}
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format $dateFormat }}</time>
+      {{ end }}
+    </article>
+  {{ end }}
+</div>
+{{ partial "pagination.html" $paginator }}
+{{ end }}

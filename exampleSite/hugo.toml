@@ -1,0 +1,70 @@
+baseURL = "https://example.org/"
+locale = "zh-CN"
+title = "My XMin Site"
+theme = "hugo-xmin"
+
+# Theme options
+[params]
+author = "Your Name"
+description = "A minimal personal site built with Hugo XMin."
+footer = "&copy; [Your Name](https://example.org/) 2024 - {Year}"
+tocTitle = "目录"
+recently = 6
+dateFormat = "2006/01/02"
+photoListColumns = 2
+
+# List pagination
+[pagination]
+pagerSize = 30
+
+# Stable content URLs
+[permalinks.page]
+posts = "/posts/:year/:month/:contentbasename/"
+photos = "/photos/:year/:contentbasename/"
+
+# Main navigation
+[[menus.main]]
+name = "主页"
+pageRef = "/"
+weight = 10
+
+[[menus.main]]
+name = "随笔"
+pageRef = "/posts"
+weight = 20
+
+[[menus.main]]
+name = "相册"
+pageRef = "/photos"
+weight = 30
+
+[[menus.main]]
+name = "分类"
+url = "/categories/"
+weight = 40
+
+[[menus.main]]
+name = "标签"
+url = "/tags/"
+weight = 50
+
+# Taxonomy names used by article metadata
+[taxonomies]
+category = "categories"
+tag = "tags"
+
+# Markdown rendering
+[markup.highlight]
+codeFences = true
+guessSyntax = true
+noClasses = true
+style = "github"
+
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 5
+ordered = false
+
+# Production output
+[minify]
+minifyOutput = true
