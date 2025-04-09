@@ -1,7 +1,14 @@
-body {
-  font-family: Optima, Candara, Calibri, Arial, sans-serif;
+@font-face {
+  font-family: CEJK;
+  src: url('../fonts/CEJK04-W03.ttf') format('opentype');
 }
+
+body {
+  font-family: Optima, Candara, Calibri, Arial, CEJK, sans-serif;
+}
+
 code {
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 85%;
+  font-family: "Jetbrains Mono", 'Source Code Pro', Monaco, CEJK, monospace;
+  font-size: 80%;
+  font-weight: lighter;
 }
