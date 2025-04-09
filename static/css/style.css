@@ -117,3 +117,10 @@ tr:nth-child(even) {
   top: 0;
   border: 0;
 }
+
+#TableOfContents,
+#TOC {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin: 1em 0;
+}
