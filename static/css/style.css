@@ -98,3 +98,21 @@ tfoot,
 tr:nth-child(even) {
   background: #eee;
 }
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56%;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  margin: 1em 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border: 0;
+}
