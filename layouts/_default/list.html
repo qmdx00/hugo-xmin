@@ -7,8 +7,9 @@
 {{ .Content }}
 
 <ul>
-  {{ $pages := .Pages }}
-  {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+  {{ $pages := .Pages.ByDate.Reverse }}
+  <!-- recently 5 posts -->
+  {{ if .IsHome }}{{ $pages = .Site.RegularPages.ByDate.Reverse.Limit 5 }}{{ end }}
   {{ range (where $pages "Section" "!=" "") }}
   <li>
     <span class="date">{{ .Date.Format "2006/01/02" }}</span>
