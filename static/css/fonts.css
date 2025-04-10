@@ -1,9 +1,9 @@
 body {
-  font-family: Optima, Candara, Calibri, Arial, 'Source Han Serif CN VF', sans-serif;
+  font-family: Optima, Candara, Calibri, Arial, sans-serif;
 }
 
 code {
-  font-family: "Jetbrains Mono", 'Source Code Pro', Monaco, 'Source Han Serif CN VF', monospace;
+  font-family: "Jetbrains Mono", 'Source Code Pro', Monaco, monospace;
   font-size: 80%;
   font-weight: lighter;
 }
