@@ -1,14 +1,9 @@
-@font-face {
-  font-family: CEJK;
-  src: url('../fonts/CEJK04-W03.ttf') format('opentype');
-}
-
 body {
-  font-family: Optima, Candara, Calibri, Arial, CEJK, sans-serif;
+  font-family: Optima, Candara, Calibri, Arial, 'Source Han Serif CN VF', sans-serif;
 }
 
 code {
-  font-family: "Jetbrains Mono", 'Source Code Pro', Monaco, CEJK, monospace;
+  font-family: "Jetbrains Mono", 'Source Code Pro', Monaco, 'Source Han Serif CN VF', monospace;
   font-size: 80%;
   font-weight: lighter;
 }
