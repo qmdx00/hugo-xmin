@@ -6,7 +6,7 @@
 
 {{ .Content }}
 
-<ul>
+<ul class="list">
   {{ $pages := .Pages.ByDate.Reverse }}
   <!-- recently 5 posts -->
   {{ if .IsHome }}{{ $pages = .Site.RegularPages.ByDate.Reverse.Limit 5 }}{{ end }}
