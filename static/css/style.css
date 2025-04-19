@@ -118,8 +118,7 @@ tr:nth-child(even) {
   border: 0;
 }
 
-#TableOfContents,
-#TOC {
+#TableOfContents {
   border: 1px solid #eee;
   border-radius: 5px;
   margin: 1em 0;
