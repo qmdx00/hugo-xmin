@@ -1,9 +1,14 @@
+:root {
+  --body-font: Optima, Candara, Calibri, Arial, sans-serif;
+  --code-font: "Jetbrains Mono", "Source Code Pro", Monaco, monospace;
+}
+
 body {
-  font-family: Optima, Candara, Calibri, Arial, sans-serif;
+  font-family: var(--body-font);
 }
 
 code {
-  font-family: "Jetbrains Mono", 'Source Code Pro', Monaco, monospace;
+  font-family: var(--code-font);
   font-size: 80%;
   font-weight: lighter;
 }

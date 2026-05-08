@@ -2,7 +2,7 @@
 
 ## _Keep it simple, but not simpler_
 
-**XMin** is a Hugo theme written by [Yihui Xie](https://yihui.org) in about four hours: half an hour was spent on the Hugo templates, and 3.5 hours were spent on styling. The main motivation for writing this theme was to provide a really minimal example to beginners of Hugo templates. This XMin theme contains about 140 lines of code in total, including the code in HTML templates and CSS (also counting empty lines).
+**XMin** is a Hugo theme written by [Yihui Xie](https://yihui.org) in about four hours: half an hour was spent on the Hugo templates, and 3.5 hours were spent on styling. The main motivation for writing this theme was to provide a really minimal example to beginners of Hugo templates. This fork keeps the same small-theme spirit while adding a base template, a video shortcode, and a minimal example site.
 
 
 ```bash
@@ -10,18 +10,50 @@ find . -not -path '*/exampleSite/*' \( -name '*.html' -o -name '*.css' \) | xarg
 ```
 
 ```
-       5 ./layouts/404.html
-      12 ./layouts/_default/single.html
-      20 ./layouts/_default/list.html
-      13 ./layouts/_default/terms.html
-       0 ./layouts/partials/foot_custom.html
+       4 ./layouts/404.html
+       4 ./layouts/shortcodes/gallery.html
+      19 ./layouts/shortcodes/bilibili.html
+      28 ./layouts/_default/single.html
+      23 ./layouts/_default/list.html
+      12 ./layouts/_default/terms.html
+      19 ./layouts/_default/baseof.html
+      11 ./layouts/partials/pagination.html
+      37 ./layouts/partials/seo.html
+       1 ./layouts/partials/foot_custom.html
+       0 ./layouts/partials/comment.html
        0 ./layouts/partials/head_custom.html
-       9 ./layouts/partials/footer.html
-      20 ./layouts/partials/header.html
-      51 ./static/css/style.css
-       7 ./static/css/fonts.css
-     137 total
+       7 ./layouts/partials/footer.html
+       8 ./layouts/partials/header.html
+     191 ./static/css/style.css
+      14 ./static/css/fonts.css
+     378 total
 ```
 
-I can certainly further reduce the code, for example, by eliminating the CSS, but I believe a tiny bit of CSS can greatly improve readability. You cannot really find many CSS frameworks that only contain 50 lines of code.
+The theme is still intentionally compact, but the templates are now organized around Hugo's base layout system so metadata, SEO, pagination, and layout extensions can be handled in focused partials.
 
+## Preview
+
+The theme includes a minimal example site. From the theme root, run:
+
+```bash
+hugo server --source exampleSite --themesDir ../.. --theme hugo-xmin
+```
+
+Then open the local URL printed by Hugo.
+
+## Shortcodes
+
+Embed a Bilibili video with either positional or named parameters:
+
+```md
+{{< bilibili BV1xx411c7mD >}}
+{{< bilibili id="BV1xx411c7mD" page="2" >}}
+```
+
+Create a responsive image gallery:
+
+```md
+{{< gallery columns="3" >}}
+{{< figure src="/photos/example.jpg" alt="Example photo" >}}
+{{< /gallery >}}
+```

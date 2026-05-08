@@ -1,4 +1,4 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
 
 {{if not .IsHome }}
 <h1>{{ .Title | markdownify }}</h1>
@@ -8,14 +8,16 @@
 
 <ul class="list">
   {{ $pages := .Pages.ByDate.Reverse }}
-  <!-- recently 5 posts -->
-  {{ if .IsHome }}{{ $pages = .Site.RegularPages.ByDate.Reverse.Limit 5 }}{{ end }}
-  {{ range (where $pages "Section" "!=" "") }}
+  {{ if .IsHome }}{{ $pages = .Site.RegularPages.ByDate.Reverse }}{{ end }}
+  {{ $paginator := .Paginate (where $pages "Section" "!=" "") }}
+  {{ range $paginator.Pages }}
   <li>
+    {{ if not .Date.IsZero }}
     <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+    {{ end }}
     <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
   </li>
   {{ end }}
 </ul>
-
-{{ partial "footer.html" . }}
+{{ partial "pagination.html" $paginator }}
+{{ end }}
