@@ -1,11 +1,10 @@
 {{ if gt .TotalPages 1 }}
 <nav class="pagination">
   {{ if .HasPrev }}
-  <a href="{{ .Prev.URL }}">Newer</a>
+  <a href="{{ .Prev.URL }}">Prev Page</a>
   {{ end }}
-  <span>Page {{ .PageNumber }} of {{ .TotalPages }}</span>
   {{ if .HasNext }}
-  <a href="{{ .Next.URL }}">Older</a>
+  <a href="{{ .Next.URL }}">Next Page</a>
   {{ end }}
 </nav>
 {{ end }}

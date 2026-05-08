@@ -8,8 +8,18 @@
 
 <ul class="list">
   {{ $pages := .Pages.ByDate.Reverse }}
-  {{ if .IsHome }}{{ $pages = .Site.RegularPages.ByDate.Reverse }}{{ end }}
-  {{ $paginator := .Paginate (where $pages "Section" "!=" "") }}
+  {{ if .IsHome }}
+  {{ $pages = .Site.RegularPages.ByDate.Reverse.Limit 6 }}
+  {{ range (where $pages "Section" "!=" "") }}
+  <li>
+    {{ if not .Date.IsZero }}
+    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+    {{ end }}
+    <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+  </li>
+  {{ end }}
+  {{ else }}
+  {{ $paginator := .Paginate (where $pages "Section" "!=" "") 30 }}
   {{ range $paginator.Pages }}
   <li>
     {{ if not .Date.IsZero }}
@@ -18,6 +28,7 @@
     <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
   </li>
   {{ end }}
+  {{ partial "pagination.html" $paginator }}
+  {{ end }}
 </ul>
-{{ partial "pagination.html" $paginator }}
 {{ end }}
