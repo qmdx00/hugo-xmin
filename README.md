@@ -16,7 +16,7 @@ find . -not -path '*/exampleSite/*' \( -name '*.html' -o -name '*.css' \) | xarg
       28 ./layouts/_default/single.html
       23 ./layouts/_default/list.html
       12 ./layouts/_default/terms.html
-      19 ./layouts/_default/baseof.html
+      20 ./layouts/_default/baseof.html
       11 ./layouts/partials/pagination.html
       37 ./layouts/partials/seo.html
        1 ./layouts/partials/foot_custom.html
@@ -24,9 +24,9 @@ find . -not -path '*/exampleSite/*' \( -name '*.html' -o -name '*.css' \) | xarg
        0 ./layouts/partials/head_custom.html
        7 ./layouts/partials/footer.html
        8 ./layouts/partials/header.html
-     191 ./static/css/style.css
+     245 ./static/css/style.css
       14 ./static/css/fonts.css
-     378 total
+     433 total
 ```
 
 The theme is still intentionally compact, but the templates are now organized around Hugo's base layout system so metadata, SEO, pagination, and layout extensions can be handled in focused partials.

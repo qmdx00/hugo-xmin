@@ -178,6 +178,61 @@ tr:nth-child(even) {
   text-decoration: none;
 }
 
+.gallery figure,
+.gallery img {
+  cursor: zoom-in;
+}
+
+.gallery-lightbox {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  place-items: center;
+  gap: .75em;
+  box-sizing: border-box;
+  padding: 2.5em 1em 1em;
+  background: rgba(0, 0, 0, .86);
+}
+
+.gallery-lightbox[hidden] {
+  display: none;
+}
+
+.gallery-lightbox-image {
+  max-width: min(96vw, 1400px);
+  max-height: 82vh;
+  object-fit: contain;
+  box-shadow: 0 1em 3em rgba(0, 0, 0, .45);
+}
+
+.gallery-lightbox-caption {
+  max-width: min(96vw, 900px);
+  margin: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.gallery-lightbox-close {
+  position: absolute;
+  top: .75em;
+  right: .75em;
+  width: 2.25em;
+  height: 2.25em;
+  border: 1px solid rgba(255, 255, 255, .35);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(0, 0, 0, .35);
+  font-size: 1.25em;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.gallery-lightbox-open {
+  overflow: hidden;
+}
+
 @media (max-width: 600px) {
   body {
     padding: .75em;
